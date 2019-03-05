@@ -1,0 +1,45 @@
+{
+  "name": "my-awesome-greeter",
+  "version": "1.0.0",
+  "description": "A nice greeter",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "npm test && npm run lint",
+
+    "prepare": "npm run build",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags",
+
+
+
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuartcrobinson/my-awesome-greeter.git"
+  },
+  "keywords": ["Hello", "Greeter"],
+  "author": "C-J",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stuartcrobinson/my-awesome-greeter/issues"
+  },
+  "homepage": "https://github.com/stuartcrobinson/my-awesome-greeter#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.9",
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.13.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3333"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
